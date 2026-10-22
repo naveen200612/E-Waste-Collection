@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle - E-Waste Collection & Recycling Portal</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
+        header { background-color: #2e7d32; color: white; padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+        .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid #2e7d32; text-align: center; }
+        .card.awaiting { border-left-color: #ff9800; }
+        .card.recycling { border-left-color: #2196f3; }
+        .card.success { border-left-color: #4caf50; }
+        .card h3 { margin: 0; font-size: 0.9rem; color: #666; text-transform: uppercase; }
+        .card p { margin: 10px 0 0; font-size: 1.8rem; font-weight: bold; color: #222; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .centre-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .centre-card h2 { margin-top: 0; color: #2e7d32; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; }
+        .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+        .status { font-weight: bold; color: #2196f3; }
+        .admin-section { background: #e0f2f1; padding: 20px; border-radius: 8px; margin-top: 30px; border: 1px dashed #004d40; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EcoCycle Portal</h1>
+        <p>City Electronic Waste Collection & Recycling Management</p>
+    </header>
+
+    <!-- Section Added in Enhancement Commit -->
+    <h2>📊 Processing Status Dashboard</h2>
+    <div class="dashboard">
+        <div class="card"><h3>Total Collected</h3><p>1,245 units</p></div>
+        <div class="card awaiting"><h3>Awaiting Processing</h3><p>320 units</p></div>
+        <div class="card recycling"><h3>Under Recycling</h3><p>450 units</p></div>
+        <div class="card success"><h3>Successfully Recycled</h3><p>475 units</p></div>
+    </div>
+
+    <h2>📍 E-Waste Collection Centres</h2>
+    <div class="grid">
+        <!-- Centre 1 -->
+        <div class="centre-card">
+            <h2>Downtown EcoHub</h2>
+            <p><strong>Location:</strong> 101 Green Avenue, Ward 4</p>
+            <p><strong>Accepted Devices:</strong> <span class="badge">Mobile Phones</span> <span class="badge">Laptops</span></p>
+            <p><strong>Schedule:</strong> Mon-Wed, 9:00 AM - 5:00 PM</p>
+            <p><strong>Instructions:</strong> Remove all SIM cards and personal data before drop-off.</p>
+            <p><strong>Status:</strong> <span class="status">Active - Accepting Drop-offs</span></p>
+        </div>
+        <!-- Centre 2 -->
+        <div class="centre-card">
+            <h2>Metro Battery & TV Depot</h2>
+            <p><strong>Location:</strong> 45 Industrial Link Rd</p>
+            <p><strong>Accepted Devices:</strong> <span class="badge">Batteries</span> <span class="badge">Televisions</span></p>
+            <p><strong>Schedule:</strong> Thu-Sat, 10:00 AM - 6:00 PM</p>
+            <p><strong>Instructions:</strong> Tape battery terminals. Secure TV screens safely.</p>
+            <p><strong>Status:</strong> <span class="status">Sorting & Processing Inventory</span></p>
+        </div>
+        <!-- Centre 3 -->
+        <div class="centre-card">
+            <h2>Suburban Reclamation Centre</h2>
+            <p><strong>Location:</strong> 789 Valley View Bypass</p>
+            <p><strong>Accepted Devices:</strong> <span class="badge">Mobile Phones</span> <span class="badge">Batteries</span> <span class="badge">Laptops</span></p>
+            <p><strong>Schedule:</strong> Every Day, 8:00 AM - 4:00 PM</p>
+            <p><strong>Instructions:</strong> Drop items into designated sorting bins outside the gate.</p>
+            <p><strong>Status:</strong> <span class="status">Capacity Alert - Processing Batch #41</span></p>
+        </div>
+        <!-- Centre 4 -->
+        <div class="centre-card">
+            <h2>Civic Centre E-Collection Point</h2>
+            <p><strong>Location:</strong> Municipal Building Basement, Room B2</p>
+            <p><strong>Accepted Devices:</strong> <span class="badge">Laptops</span> <span class="badge">Televisions</span></p>
+            <p><strong>Schedule:</strong> Fridays only, 1:00 PM - 7:00 PM</p>
+            <p><strong>Instructions:</strong> Present city residency ID card upon arrival.</p>
+            <p><strong>Status:</strong> <span class="status">Awaiting Weekly Transit Pickup</span></p>
+        </div>
+        <!-- Centre 5 -->
+        <div class="centre-card">
+            <h2>TechDistrict Recycling Pavilion</h2>
+            <p><strong>Location:</strong> 12 Innovation Way</p>
+            <p><strong>Accepted Devices:</strong> <span class="badge">Mobile Phones</span> <span class="badge">Laptops</span> <span class="badge">Batteries</span> <span class="badge">Televisions</span></p>
+            <p><strong>Schedule:</strong> Mon-Fri, 9:00 AM - 4:00 PM</p>
+            <p><strong>Instructions:</strong> Bulk corporate recycling requests must be scheduled via email.</p>
+            <p><strong>Status:</strong> <span class="status">Shipment dispatched to downstream smelter</span></p>
+        </div>
+    </div>
+
+    <!-- Section Added in Enhancement Commit -->
+    <div class="admin-section">
+        <h2>📢 Administrator Notice: Collection Schedule Updates</h2>
+        <p><strong>Last Updated:</strong> October 2026</p>
+        <ul>
+            <li>Due to upcoming maintenance, Metro Battery Depot will close early on Saturdays.</li>
+            <li>Holiday collection schedules for November will be posted by next week.</li>
+        </ul>
+    </div>
+</body>
+</html>
