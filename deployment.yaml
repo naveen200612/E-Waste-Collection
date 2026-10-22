@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ewaste-portal
+  labels:
+    app: ewaste-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ewaste-portal
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: ewaste-portal
+    spec:
+      containers:
+      - name: portal
+        image: naveen200612/ewaste-portal:latest
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ewaste-portal-service
+spec:
+  type: NodePort
+  selector:
+    app: ewaste-portal
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
